@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 
 import "./transaction.dart";
 
+import "package:intl/intl.dart";
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -53,6 +55,29 @@ class MyHomePage extends StatelessWidget {
               child: Text("CHART!"),
             ),
           ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(15),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: "Title"),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: "Amount"),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Add Expense",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Column(
             children: transactions.map((txn) {
               return Card(
@@ -85,7 +110,7 @@ class MyHomePage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             )),
                         Text(
-                          txn.date.toString(),
+                          DateFormat("yMMMMEEEEd").format(txn.date),
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[800],
