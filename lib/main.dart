@@ -6,6 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.indigo),
       title: "Expense App",
       home: MyHomePage(),
     );
@@ -21,11 +22,17 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Card(
-            child: Text("CHART!"),
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.amber[200],
+              child: Text("CHART!"),
+            ),
           ),
-          Card(
-            child: Text("LIST OF TRANSACTIONS!"),
+          Container(
+            child: Card(
+              child: Text("LIST OF TRANSACTIONS!"),
+            ),
           ),
         ],
       ),
