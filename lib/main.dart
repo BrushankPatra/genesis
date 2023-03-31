@@ -59,12 +59,37 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      child: Text(txn.amount.toString()),
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 15,
+                      ),
+                      child: Text(
+                        txn.amount.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      decoration: BoxDecoration(color: Colors.indigo),
+                      padding: EdgeInsets.all(10),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(txn.title),
-                        Text(txn.date.toString()),
+                        Text(txn.title,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.indigo,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        Text(
+                          txn.date.toString(),
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[800],
+                          ),
+                        ),
                       ],
                     ),
                   ],
