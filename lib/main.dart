@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.indigo),
-      title: "Expense App",
+      title: "Expense Tracker",
       home: MyHomePage(),
     );
   }
@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expense App"),
+        title: Text("Expense Tracker"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,6 +56,7 @@ class MyHomePage extends StatelessWidget {
           Column(
             children: transactions.map((txn) {
               return Card(
+                elevation: 5,
                 child: Row(
                   children: [
                     Container(
@@ -64,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                         horizontal: 15,
                       ),
                       child: Text(
-                        txn.amount.toString(),
+                        "₹ ${txn.amount}",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
