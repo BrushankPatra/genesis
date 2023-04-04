@@ -32,7 +32,8 @@ class TransactionList extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  decoration: BoxDecoration(color: Colors.indigo),
+                  decoration:
+                      BoxDecoration(color: Theme.of(context).primaryColor),
                   padding: EdgeInsets.all(10),
                 ),
                 Column(
@@ -41,7 +42,7 @@ class TransactionList extends StatelessWidget {
                     Text(transactions[index].title,
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.indigo,
+                          color: Theme.of(context).primaryColorDark,
                           fontWeight: FontWeight.bold,
                         )),
                     Text(
