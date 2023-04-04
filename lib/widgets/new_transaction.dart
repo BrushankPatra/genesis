@@ -20,6 +20,7 @@ class NewTransaction extends StatelessWidget {
               controller: titleController,
             ),
             TextField(
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: "Amount"),
               controller: amountController,
             ),
@@ -27,7 +28,7 @@ class NewTransaction extends StatelessWidget {
               onPressed: () {
                 print(titleController);
                 addNewTxn(
-                    titleController.text, double.parse(amountController.text));
+                    titleController.text, int.parse(amountController.text));
               },
               child: Text(
                 "Add Expense",
