@@ -7,6 +7,16 @@ class NewTransaction extends StatelessWidget {
 
   NewTransaction(this.addNewTxn);
 
+  void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = int.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+    addNewTxn(enteredTitle, enteredAmount);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,14 +34,10 @@ class NewTransaction extends StatelessWidget {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: "Amount"),
               controller: amountController,
-              onSubmitted: (_) => addNewTxn, //not working in iOS
+              onSubmitted: (_) => submitData, //not working in iOS
             ),
             TextButton(
-              onPressed: () {
-                print(titleController);
-                addNewTxn(
-                    titleController.text, int.parse(amountController.text));
-              },
+              onPressed: submitData,
               child: Text(
                 "Add Expense",
                 style: TextStyle(fontWeight: FontWeight.bold),
