@@ -28,13 +28,12 @@ class NewTransaction extends StatelessWidget {
             TextField(
               decoration: InputDecoration(labelText: "Title"),
               controller: titleController,
-              onSubmitted: (_) => addNewTxn, //not working in iOS
+              onSubmitted: (_) => submitData(),
             ),
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: "Amount"),
               controller: amountController,
-              onSubmitted: (_) => submitData, //not working in iOS
             ),
             TextButton(
               onPressed: submitData,
