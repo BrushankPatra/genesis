@@ -15,6 +15,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         accentColor: Colors.amber[300],
+        fontFamily: "QuickSand",
+        appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  titleLarge: TextStyle(
+                    fontFamily: "OpenSans",
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
       ),
       title: "Expense Tracker",
       home: MyHomePage(),
