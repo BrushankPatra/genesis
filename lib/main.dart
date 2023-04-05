@@ -15,14 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         accentColor: Colors.amber[300],
-        fontFamily: "QuickSand",
-        appBarTheme: AppBarTheme(
-            textTheme: ThemeData.light().textTheme.copyWith(
-                  titleLarge: TextStyle(
-                    fontFamily: "OpenSans",
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
+        fontFamily: "Quicksand",
       ),
       title: "Expense Tracker",
       home: MyHomePage(),
@@ -82,7 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expense Tracker"),
+        title: Text(
+          "Expense Tracker",
+          style: TextStyle(fontFamily: "OpenSans"),
+        ),
         actions: [
           IconButton(
             onPressed: () => _showTransactionForm(context),
