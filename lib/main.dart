@@ -16,6 +16,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         accentColor: Colors.amber[300],
         fontFamily: "Poppins",
+        textTheme: TextTheme(
+          titleLarge: TextStyle(
+            fontFamily: "Raleway",
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         appBarTheme: AppBarTheme(
           titleTextStyle: TextStyle(
             fontFamily: "Raleway",
