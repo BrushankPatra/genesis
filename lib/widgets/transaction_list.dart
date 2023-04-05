@@ -13,49 +13,60 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 600,
-      child: ListView.builder(
-        itemBuilder: (cntxt, index) {
-          return Card(
-            elevation: 5,
-            child: Row(
+      child: transactions.isEmpty
+          ? Column(
               children: [
-                Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 15,
-                  ),
-                  child: Text(
-                    "₹ ${transactions[index].amount}",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  decoration:
-                      BoxDecoration(color: Theme.of(context).primaryColor),
-                  padding: EdgeInsets.all(10),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(transactions[index].title,
-                        style: Theme.of(context).textTheme.titleLarge),
-                    Text(
-                      DateFormat("yMMMMEEEEd").format(transactions[index].date),
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[800],
-                      ),
-                    ),
-                  ],
+                Image.asset("assets/images/add_transaction.png"),
+                Text(
+                  "NO EXPENSES ADDED YET",
+                  style: TextStyle(fontFamily: "Raleway"),
                 ),
               ],
+            )
+          : ListView.builder(
+              itemBuilder: (cntxt, index) {
+                return Card(
+                  elevation: 5,
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 15,
+                        ),
+                        child: Text(
+                          "₹ ${transactions[index].amount}",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor),
+                        padding: EdgeInsets.all(10),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(transactions[index].title,
+                              style: Theme.of(context).textTheme.titleLarge),
+                          Text(
+                            DateFormat("yMMMMEEEEd")
+                                .format(transactions[index].date),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[800],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+              itemCount: transactions.length,
             ),
-          );
-        },
-        itemCount: transactions.length,
-      ),
     );
   }
 }
