@@ -43,7 +43,8 @@ class TransactionList extends StatelessWidget {
                           ),
                         ),
                         decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor),
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.circular(10)),
                         padding: EdgeInsets.all(10),
                       ),
                       Column(
