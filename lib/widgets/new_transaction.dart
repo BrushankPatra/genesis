@@ -43,6 +43,15 @@ class _NewTransactionState extends State<NewTransaction> {
               decoration: InputDecoration(labelText: "Amount"),
               controller: amountController,
             ),
+            Row(
+              children: [
+                Text("No date chosen!"),
+                TextButton(
+                  onPressed: () {},
+                  child: Text("Choose Date"),
+                )
+              ],
+            ),
             TextButton(
               onPressed: submitData,
               child: Text(
