@@ -14,7 +14,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountController = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = int.parse(amountController.text);
 
@@ -23,6 +23,15 @@ class _NewTransactionState extends State<NewTransaction> {
     }
     widget.addNewTxn(enteredTitle, enteredAmount);
     Navigator.of(context).pop();
+  }
+
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2023),
+      lastDate: DateTime.now(),
+    );
   }
 
   @override
@@ -36,7 +45,7 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               decoration: InputDecoration(labelText: "Title"),
               controller: titleController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
             ),
             TextField(
               keyboardType: TextInputType.number,
@@ -49,7 +58,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 children: [
                   Text("No date chosen!"),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: _presentDatePicker,
                     child: Text(
                       "Choose Date",
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -59,11 +68,8 @@ class _NewTransactionState extends State<NewTransaction> {
               ),
             ),
             ElevatedButton(
-              onPressed: submitData,
-              child: Text(
-                "Add Expense",
-                //style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              onPressed: _submitData,
+              child: Text("Add Expense"),
             ),
           ],
         ),
