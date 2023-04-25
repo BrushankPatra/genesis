@@ -28,6 +28,7 @@ class TransactionList extends StatelessWidget {
                 return Card(
                   elevation: 5,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         margin: EdgeInsets.symmetric(
@@ -48,7 +49,7 @@ class TransactionList extends StatelessWidget {
                         padding: EdgeInsets.all(10),
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(transactions[index].title,
                               style: Theme.of(context).textTheme.titleLarge),
@@ -61,6 +62,10 @@ class TransactionList extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.delete),
                       ),
                     ],
                   ),
